@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>增加产品</title>
-    <link rel="stylesheet" href="__PUBLIC__/css/weui.min.css"/>
+    <link rel="stylesheet" href="//cdn.c3w.com.cn/css/weui.min.css"/>
 <style type="text/css">
 body{background-color:#efeff4;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none
 }
@@ -43,12 +43,12 @@ font-size: 17px}
             <div class="weui-panel__hd">产品列表</div>
 
             <div class="weui-panel__bd">
-            <foreach name="list" item="v">
+            {foreach $list as $vo} 
                 <div class="weui-media-box weui-media-box_text">
-                    <h4 class="weui-media-box__title">{$v.name}</h4>
-                    <p class="weui-media-box__desc">数量：{$v.number}，进货价：{$v.buy_price}元，售价：{$v.sale_price}元</p>
+                    <h4 class="weui-media-box__title">{$vo.name}</h4>
+                    <p class="weui-media-box__desc">数量：{$vo.number}，进货价：{$vo.buy_price}元，售价：{$vo.sale_price}元</p>
                 </div>
-            </foreach>
+            {/foreach}
             </div>
 
             <!-- <div class="weui-panel__ft">

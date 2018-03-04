@@ -3,7 +3,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 
-class Index extends Controller
+class Index extends Base
 {
 
     /*
@@ -12,18 +12,6 @@ class Index extends Controller
 
     public function  __construct() {
         parent::__construct();
-
-        $company = input('company');
-        if($company){
-            session('company',$company);
-        }else{
-            $company = session('company');
-        }
-
-        if(!$company){
-            $this->error("公司参数错误");
-            exit;
-        }
       
 
     }

@@ -51,6 +51,8 @@ class Index extends Controller {
         $list = Db::table('oa_product')->select();
         $this->assign("list",$list);
 
+           
+
         return $this->fetch();
     }
     
