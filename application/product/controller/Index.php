@@ -7,6 +7,7 @@ use think\Controller;
 use think\Page;
 use think\Db;
 use think\Session;
+use think\Request;
 
 class Index extends Controller {
 
@@ -16,42 +17,36 @@ class Index extends Controller {
 
     public function  __construct() {
         parent::__construct();
-
-        $company = input('company');
-        if($company){
-            Session::set('company',$company);
-        }else{
-            $company = Session::get('company');
-        }
-
-        if(!$company){
-            $this->error("公司参数错误");
-            exit;
-        }
       
 
     }
    
     public function index(){
-        $company = Session::get('company');
+       
     
+
+        $pro_num = Db::table('oa_product')->count();
+        $this->assign("pro_num",$pro_num);
+
 
         return $this->fetch();
     }
    
     public function product_list(){
 
-        // if(IS_POST){
-        //     $post  = I('post.');
-            
-        //     M('product')->save($post);
-        //     $this->success('增加成功');
-        // }
+        if (input('?post.name')){
 
+            $post  = input('post.');
+            
+            Db::table('oa_product')->insert($post);
+            $this->success('增加成功');
+
+
+        }
+
+       
         $list = Db::table('oa_product')->select();
         $this->assign("list",$list);
-
-           
 
         return $this->fetch();
     }

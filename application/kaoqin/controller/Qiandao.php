@@ -1,9 +1,9 @@
 <?php
-namespace app\user\controller;
+namespace app\kaoqin\controller;
 use think\Controller;
 use think\Db;
 
-class Login extends Base
+class Qiandao extends Base
 {
 
     /*
@@ -19,8 +19,10 @@ class Login extends Base
     public function index()
     {
 
+        $user_id = session('user_id');
 
-        echo "login";
+        dump($user_id);
        
+        return $this->fetch();
     }
 }

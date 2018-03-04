@@ -1,5 +1,5 @@
 <?php
-namespace app\user\controller;
+namespace app\kaoqin\controller;
 use think\Controller;
 use think\Db;
 
